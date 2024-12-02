@@ -8,11 +8,11 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// Middleware for parsing JSON and form data
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Session configuration
+
 app.use(
   session({
     secret: 'securesecretkey',
@@ -22,11 +22,11 @@ app.use(
   })
 );
 
-// Mount routes
+
 app.use('/auth', authRoutes);
 app.use('/medications', medicationRoutes);
 
-// Serve static files from the current directory
+
 app.use(express.static(path.join(__dirname)));
 
 // Default error handling middleware
