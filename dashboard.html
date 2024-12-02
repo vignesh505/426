@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Medication Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Medication Tracker</h1>
+    <button id="logout-button">Log Out</button>
+  </header>
+  <main>
+    <section id="dashboard">
+      <h2>Your Medications</h2>
+      <ul id="medication-list"></ul>
+      <form id="add-medication-form">
+        <label for="medication-name">Name</label>
+        <input type="text" id="medication-name" required>
+        <label for="medication-dosage">Dosage</label>
+        <input type="text" id="medication-dosage" required>
+        <label for="medication-frequency">Frequency</label>
+        <input type="text" id="medication-frequency" required>
+        <label for="medication-time">Time</label>
+        <input type="time" id="medication-time" required>
+        <button type="submit">Add Medication</button>
+      </form>
+      <button id="find-medication">Find Medication</button>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
