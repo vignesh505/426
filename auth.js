@@ -4,7 +4,7 @@ const db = require('./database');
 
 const router = express.Router();
 
-// Register a new user
+
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
 
@@ -27,7 +27,7 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Login an existing user
+
 router.post('/login', (req, res) => {
   const { username, password } = req.body;
 
@@ -50,7 +50,7 @@ router.post('/login', (req, res) => {
   });
 });
 
-// Logout a user
+
 router.post('/logout', (req, res) => {
   req.session.destroy();
   res.json({ message: 'Logged out successfully.' });
