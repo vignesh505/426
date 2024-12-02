@@ -7,7 +7,7 @@ const dashboard = document.getElementById('dashboard');
 const logoutButton = document.getElementById('logout-button');
 const findMedicationButton = document.getElementById('find-medication');
 
-// Register Form
+
 registerForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const username = document.getElementById('reg-username').value;
@@ -27,7 +27,7 @@ registerForm?.addEventListener('submit', async (e) => {
   }
 });
 
-// Login Form
+
 loginForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const username = document.getElementById('username').value;
@@ -36,7 +36,7 @@ loginForm?.addEventListener('submit', async (e) => {
   login(username, password);
 });
 
-// Login Function
+
 async function login(username, password) {
   const response = await fetch('/auth/login', {
     method: 'POST',
@@ -52,14 +52,14 @@ async function login(username, password) {
   }
 }
 
-// Logout Button
+
 logoutButton?.addEventListener('click', async () => {
   await fetch('/auth/logout', { method: 'POST' });
   alert('Logged out successfully!');
   window.location.href = 'index.html';
 });
 
-// Add Medication Form
+
 addMedicationForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
   const name = document.getElementById('medication-name').value;
@@ -82,7 +82,7 @@ addMedicationForm?.addEventListener('submit', async (e) => {
   }
 });
 
-// Load Medications
+
 async function loadMedications() {
   const response = await fetch('/medications');
   if (response.ok) {
@@ -132,42 +132,42 @@ findMedicationButton?.addEventListener('click', async () => {
         - **Warnings:** ${warnings}
         - **Side Effects:** ${sideEffects}`;
 
-        // Create or update the "View Full Information" button
+     
         let fullDataButton = document.getElementById('full-info-button');
         if (!fullDataButton) {
-          // If the button doesn't exist, create it
+          
           fullDataButton = document.createElement('button');
           fullDataButton.id = 'full-info-button';
 
-          // Enhanced Button Styling
-          fullDataButton.style.padding = '15px 25px'; // Larger padding for a bigger button
+        
+          fullDataButton.style.padding = '15px 25px'; 
           fullDataButton.style.marginTop = '20px';
-          fullDataButton.style.backgroundColor = '#007BFF'; // Bootstrap-like primary color
+          fullDataButton.style.backgroundColor = '#007BFF'; 
           fullDataButton.style.color = 'white';
           fullDataButton.style.border = 'none';
-          fullDataButton.style.borderRadius = '8px'; // Rounded edges
-          fullDataButton.style.fontSize = '18px'; // Larger font size
-          fullDataButton.style.fontWeight = 'bold'; // Bold text for readability
+          fullDataButton.style.borderRadius = '8px'; 
+          fullDataButton.style.fontSize = '18px'; 
+          fullDataButton.style.fontWeight = 'bold'; 
           fullDataButton.style.cursor = 'pointer';
           fullDataButton.style.display = 'block';
           fullDataButton.style.textAlign = 'center';
-          fullDataButton.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)'; // Subtle shadow for a lifted effect
+          fullDataButton.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)'; 
           fullDataButton.style.transition = 'transform 0.2s ease, background-color 0.2s ease';
 
-          // Hover Effect
+          
           fullDataButton.onmouseover = () => {
-            fullDataButton.style.backgroundColor = '#0056b3'; // Darker blue on hover
-            fullDataButton.style.transform = 'scale(1.05)'; // Slightly enlarge the button
+            fullDataButton.style.backgroundColor = '#0056b3';
+            fullDataButton.style.transform = 'scale(1.05)'; 
           };
           fullDataButton.onmouseout = () => {
-            fullDataButton.style.backgroundColor = '#007BFF'; // Reset color
-            fullDataButton.style.transform = 'scale(1)'; // Reset size
+            fullDataButton.style.backgroundColor = '#007BFF';
+            fullDataButton.style.transform = 'scale(1)'; 
           };
 
           document.body.appendChild(fullDataButton);
         }
 
-        // Update button text and behavior
+        
         fullDataButton.textContent = `View Full Information for ${medicationName}`;
         fullDataButton.onclick = () => {
           let fullDetails = `**Full Details for ${medicationName}:**\n`;
@@ -188,7 +188,7 @@ findMedicationButton?.addEventListener('click', async () => {
       consolidatedInfo += '**OpenFDA Information:** Not available\n';
     }
 
-    // Display consolidated information
+    
     alert(consolidatedInfo);
   } catch (error) {
     console.error('Error fetching medication details:', error);
