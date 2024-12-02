@@ -4,7 +4,6 @@ const authMiddleware = require('./authMiddleware');
 
 const router = express.Router();
 
-// Get all medications for the logged-in user
 router.get('/', authMiddleware, (req, res) => {
   db.all('SELECT * FROM medications WHERE user_id = ?', [req.session.userId], (err, medications) => {
     if (err) return res.status(500).json({ error: 'Database error.' });
@@ -12,7 +11,7 @@ router.get('/', authMiddleware, (req, res) => {
   });
 });
 
-// Add a medication
+
 router.post('/', authMiddleware, (req, res) => {
   const { name, dosage, frequency, time } = req.body;
 
@@ -30,7 +29,7 @@ router.post('/', authMiddleware, (req, res) => {
   );
 });
 
-// Delete a medication
+
 router.delete('/:id', authMiddleware, (req, res) => {
   const { id } = req.params;
 
